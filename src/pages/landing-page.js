@@ -10,7 +10,9 @@ var Signup = React.createClass({
     return (
       <div className={className}>
         <div className="page">
-          <SignupForm/>
+          <div className="signup-form-container">
+            <SignupForm/>
+          </div>
         </div>
       </div>
     );

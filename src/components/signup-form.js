@@ -154,7 +154,7 @@ var Signup = React.createClass({
     var localizedCountries = this.context.localizedCountries;
 
     return (
-      <div>
+      <div className="signup-form">
         <input onClick={this.onFirstNameInputClick} autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
         <input onClick={this.onLastNameInputClick} autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>
         <input onClick={this.onEmailInputClick} autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
