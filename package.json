@@ -1,8 +1,9 @@
 {
   "main": "start.js",
   "scripts": {
-    "start": "npm-run-all --parallel build:l10njson watch:js server",
+    "start": "npm-run-all --parallel build:l10njson build:newsmatrices watch:js server",
     "build:l10njson": "pontoon-to-json --dest ./public",
+    "build:newsmatrices": "node lib/news-matrices.js --dest ./public",
     "build:babel": "babel src --compact=true -s --out-dir dist",
     "build:webpack": "webpack --optimize-minimize --optimize-dedupe",
     "watch:js": "npm-run-all --parallel watch:babel watch:webpack",
@@ -48,6 +49,7 @@
     "less": "2.5.3",
     "less-loader": "2.2.2",
     "localized-countries": "1.0.2",
+    "minimist": "1.2.0",
     "normalize.css": "5.0.0",
     "npm-run-all": "1.4.0",
     "object-assign": "4.1.0",

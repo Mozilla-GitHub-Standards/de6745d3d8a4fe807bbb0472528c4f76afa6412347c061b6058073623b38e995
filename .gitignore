@@ -8,6 +8,7 @@ public/css/*
 public/**/*.html
 public/main.js
 public/locales.json
+public/news-matrices.json
 public/main.*.js
 public/style.*.css
 public/webpack-assets.json
