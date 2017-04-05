@@ -15,7 +15,10 @@ var Signup = React.createClass({
             <NewsMatrices/>
           </div>
           <div className="signup-form-container">
-            <SignupForm/>
+            <div className="signup-form-content">
+              <img className="mozilla-logo" src="/assets/images/moz-logo-white.png" alt="mozilla logo in white"/>
+              <SignupForm/>
+            </div>
           </div>
         </div>
       </div>

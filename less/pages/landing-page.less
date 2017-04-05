@@ -8,19 +8,31 @@
 }
 
 .news-matrices-container {
-  float: left;
-  width: calc(100% - 400px);
+  margin-top: 50px;
+  margin-left: 500px;
+  background: #000;
+  iframe {
+    border: 1px solid cyan;
+    margin-bottom: 50px;
+  }
+}
+
+.signup-form-container img.mozilla-logo {
+  width: 120px;
+  margin-bottom:15px;
 }
 
 .signup-form-container {
   background: black;
   width: 425px;
-  float: right;
+  top: 0;
+  left: 0;
   height: 100vh;
   color: white;
   display: flex;
   align-items: center;
   padding: 50px;
+  position: fixed;
 }
 
 .signup-form button, input, optgroup, select, textarea {
@@ -33,8 +45,6 @@
   color: #fff;
   width: 100%;
   height: 55px;
-  display: flex;
-  justify-content: center;
   padding-left: 10px;
   letter-spacing: 0.05rem;
   outline: none;
@@ -77,6 +87,7 @@ p.signup-text {
 
 .signup-form label {
   font-size: 0.85rem;
+  font-family: "ZillaSlab-LightItalic";
 }
 
 .signup-form label.disclaimer-text {
