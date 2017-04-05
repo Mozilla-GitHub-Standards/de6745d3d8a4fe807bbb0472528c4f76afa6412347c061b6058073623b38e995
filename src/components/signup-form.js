@@ -1,5 +1,5 @@
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
 import { setEmailError, setEmail, setFirstName, setLastName, setCountry, setSignupCheckbox, setSignupCheckboxError, setPrivacyCheckbox, setPrivacyCheckboxError } from '../actions';
 import { connect } from 'react-redux';
 import classnames from "classnames";
@@ -155,8 +155,10 @@ var Signup = React.createClass({
 
     return (
       <div className="signup-form">
-        <input onClick={this.onFirstNameInputClick} autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
-        <input onClick={this.onLastNameInputClick} autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>
+        <h1 className="call-to-action">{this.context.intl.formatMessage({id: 'call_to_action'})}</h1>
+        <p className="signup-text">{this.context.intl.formatMessage({id: 'signup_text'})}</p>
+        {/*<input onClick={this.onFirstNameInputClick} autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
+        <input onClick={this.onLastNameInputClick} autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>*/}
         <input onClick={this.onEmailInputClick} autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
         <select autoComplete="off" required value={this.props.country} onChange={this.countryChange}>
           <option value="">{this.context.intl.formatMessage({id: 'country'})}</option>
@@ -169,10 +171,10 @@ var Signup = React.createClass({
         </select>
         <p className="error-message">{this.props.emailError}</p>
         <p className="error-message">{this.state.signupError}</p>
-        <label>
+        {/*}<label>
           <input onClick={this.onSignupCheckboxClick} className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} value={this.props.signupCheckbox} type="checkbox"></input>
           {this.context.intl.formatMessage({id: 'signup_checkbox'})}
-        </label>
+        </label>*/}
         <p className="privacy-error error-message">{this.props.signupCheckboxError}</p>
         <label>
           <input onClick={this.onPrivacyCheckboxClick} className="checkbox" autoComplete="off" onChange={this.privacyCheckboxChange} value={this.props.privacyCheckbox} type="checkbox"></input>
@@ -187,6 +189,7 @@ var Signup = React.createClass({
         <button onClick={this.onSubmit} className={buttonClassName}>
           {buttonText}
         </button>
+        <label className="disclaimer-text">{this.context.intl.formatMessage({id: 'disclaimer_text'})}</label>
       </div>
     );
   }

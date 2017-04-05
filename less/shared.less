@@ -1,18 +1,31 @@
 @font-face {
-  font-family: "Zilla-Light";
+  font-family: "ZillaSlab-Light";
   src: url('/assets/fonts/ZillaSlab-Light.woff');
   font-weight: 200;
 }
 
+@font-face {
+  font-family: "ZillaSlab-SemiBold";
+  src: url('/assets/fonts/ZillaSlab-SemiBold.woff');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "ZillaSlab-LightItalic";
+  src:url('/assets/fonts/ZillaSlab-LightItalic.woff');
+  font-weight: 200;
+}
+
 html {
-  font-family: "Zilla-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
+  font-family: "ZillaSlab-Light", "Arvo","Fira Sans", "Helvetica Neue", "Arial", sans-serif;
   font-size: 16px;
+  letter-spacing: 0.025rem;
   @media screen and (min-width: 768px) {
-    font-size: 22px;
+    font-size: 20px;
   }
-  @media screen and (min-width: 1920px) {
-    font-size: 28px;
-  }
+  /*@media screen and (min-width: 1920px) {
+    font-size: 24px;
+  }*/
 }
 
 * { box-sizing: border-box }
