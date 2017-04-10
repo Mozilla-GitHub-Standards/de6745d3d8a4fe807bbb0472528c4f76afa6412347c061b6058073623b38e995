@@ -16,12 +16,18 @@ var Signup = React.createClass({
       showForm: true
     });
   },
+  onClose: function() {
+    this.setState({
+      showForm: false
+    });
+  },
   render: function() {
     var className = "signup";
     if (this.props.test) {
       className += " " + this.props.test;
     }
     var singupFormContainerClassName = "signup-form-container";
+    console.log (this.state.showForm);
     if (this.state.showForm) {
       singupFormContainerClassName += " show";
     }
@@ -36,7 +42,7 @@ var Signup = React.createClass({
           </div>
           <div className={singupFormContainerClassName}>
             <div className="signup-form-content">
-              <SignupForm/>
+              <SignupForm onClose={this.onClose}/>
             </div>
           </div>
           <div className="signup-cta-bar">
