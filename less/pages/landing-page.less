@@ -13,9 +13,14 @@
   top: 0;
   width: 100%;
   padding: 20px;
+  z-index: 2;
 }
 
 /*News Matrix Container*/
+
+.news-matrices-container {
+  z-index: -1;
+}
 
 .news-matrices-container:first-child {
   margin-top: 100px;
@@ -55,7 +60,7 @@
   align-items: center;
   padding: 50px;
   position: fixed;
-  z-index: -1;
+  z-index: 1;
   top: 100px;
   transition: left 1s ease;
 }
@@ -133,6 +138,7 @@ p.signup-text {
   position: fixed;
   top: ~"calc(100% - 80px)";
   width:  100%;
+  display: none;
   p {
     display: inline;
     margin-right: 5px;
@@ -149,7 +155,6 @@ p.signup-text {
       color: #fff;
       cursor: pointer;
   }
-  visibility: hidden;
 }
 
 /*Responsive Design*/
@@ -164,7 +169,7 @@ p.signup-text {
     margin-left: 0;
   }
   .signup-cta-bar {
-    visibility: visible;
+    display: block;
   }
   .signup-form-container.show {
     left: 0;

@@ -37,9 +37,9 @@ var Signup = React.createClass({
           <div className="header">
             <img className="mozilla-logo" src="/assets/images/moz-logo-white.png" alt="mozilla logo in white" width="115px"/>
           </div>
-          <div className="news-matrices-container">
+          {/*}<div className="news-matrices-container">*/}
             <NewsMatrices/>
-          </div>
+          {/*}</div>*/}
           <div className={singupFormContainerClassName}>
             <div className="signup-form-content">
               <SignupForm onClose={this.onClose}/>
