@@ -3,22 +3,47 @@ import SignupForm from '../components/signup-form.js';
 import NewsMatrices from '../components/news-matrices.js';
 
 var Signup = React.createClass({
+  contextTypes: {
+    intl: React.PropTypes.object
+  },
+  getInitialState: function() {
+    return {
+      showForm: false
+    };
+  },
+  onButtonClick: function() {
+    this.setState({
+      showForm: true
+    });
+  },
   render: function() {
     var className = "signup";
     if (this.props.test) {
       className += " " + this.props.test;
     }
+    var singupFormContainerClassName = "signup-form-container";
+    if (this.state.showForm) {
+      singupFormContainerClassName += " show";
+    }
     return (
       <div className={className}>
         <div className="page">
+          <div className="header">
+            <img className="mozilla-logo" src="/assets/images/moz-logo-white.png" alt="mozilla logo in white" width="115px"/>
+          </div>
           <div className="news-matrices-container">
             <NewsMatrices/>
           </div>
-          <div className="signup-form-container">
+          <div className={singupFormContainerClassName}>
             <div className="signup-form-content">
-              <img className="mozilla-logo" src="/assets/images/moz-logo-white.png" alt="mozilla logo in white"/>
               <SignupForm/>
             </div>
+          </div>
+          <div className="signup-cta-bar">
+            <p>
+              {this.context.intl.formatMessage({id: 'signup_cta_bar'})}
+            </p>
+              <button onClick={this.onButtonClick} className="signup-cta-button">Subscribe</button>
           </div>
         </div>
       </div>

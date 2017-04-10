@@ -7,32 +7,57 @@
   }
 }
 
-.news-matrices-container {
-  margin-top: 50px;
-  margin-left: 500px;
+.header {
+  position: fixed;
   background: #000;
-  iframe {
-    border: 1px solid cyan;
-    margin-bottom: 50px;
-  }
+  top: 0;
+  width: 100%;
+  padding: 20px;
 }
 
-.signup-form-container img.mozilla-logo {
-  width: 120px;
-  margin-bottom:15px;
+/*News Matrix Container*/
+
+.news-matrices-container:first-child {
+  margin-top: 100px;
 }
+
+.news-matrix-inner-container {
+  margin-left: 425px;
+  background: #000;
+  width: ~"calc(100% - 425px)";
+  position: relative;
+  padding-bottom: 75%;
+  padding-top: 35px;
+  height: 0;
+  overflow: hidden;
+  margin-top: 2rem;
+  z-index: -1;
+}
+
+.news-matrix-inner-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*Signup Form Container*/
 
 .signup-form-container {
   background: black;
   width: 425px;
   top: 0;
   left: 0;
-  height: 100vh;
+  height: ~"calc(100vh - 100px)";
   color: white;
   display: flex;
   align-items: center;
   padding: 50px;
   position: fixed;
+  z-index: -1;
+  top: 100px;
+  transition: left 1s ease;
 }
 
 .signup-form button, input, optgroup, select, textarea {
@@ -96,4 +121,71 @@ p.signup-text {
 
 .signup-form input:invalid {
   box-shadow: none;
+}
+
+/*CTA Bar for Tablet and Mobile*/
+
+.signup-cta-bar {
+  height: 80px;
+  background: #fff;
+  padding:  0.61rem;
+  text-align: center;
+  position: fixed;
+  top: ~"calc(100% - 80px)";
+  width:  100%;
+  p {
+    display: inline;
+    margin-right: 5px;
+  }
+  button {
+    padding: 15px;
+    border:1px solid red;
+    background: #fff;
+    font-family: inherit;
+    color: red;
+  }
+  button:hover {
+      background: red;
+      color: #fff;
+      cursor: pointer;
+  }
+  visibility: hidden;
+}
+
+/*Responsive Design*/
+
+/*Initiating CTA Bar*/
+@media screen and (max-width: 1200px) {
+  .signup-form-container {
+    left: -425px;
+  }
+  .news-matrix-inner-container {
+    width: 100%;
+    margin-left: 0;
+  }
+  .signup-cta-bar {
+    visibility: visible;
+  }
+  .signup-form-container.show {
+    left: 0;
+    top: 0;
+    height: 100vh;
+  }
+}
+/*Mobile Responsive Tweaks*/
+@media screen and (max-width: 600px) {
+  .signup-cta-bar {
+    p {
+      display: none;
+    }
+    button {
+      width: 100%;
+    }
+  }
+  .signup-form-container {
+    font-size: 16px;
+    width: 100%;
+    padding: 25px;
+    top: 0;
+  }
 }

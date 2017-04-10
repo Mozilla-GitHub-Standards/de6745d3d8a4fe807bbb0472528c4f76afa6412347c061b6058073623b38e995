@@ -13,11 +13,11 @@ var newsMatricesArray = Object.keys(newsMatrices).map((newsMatrix, index) => {
 var NewsMatrices = React.createClass({
   render: function() {
     return (
-      <div>
+      <div className="news-matrices-container">
         {
           newsMatricesArray.map((newsMatrix, index) => {
             return (
-              <div key={'newsMatrix-' + index} dangerouslySetInnerHTML={{ __html: newsMatrix }}></div>
+              <div className='news-matrix-inner-container' key={'newsMatrix-' + index} dangerouslySetInnerHTML={{ __html: newsMatrix }}></div>
             );
           })
         }
