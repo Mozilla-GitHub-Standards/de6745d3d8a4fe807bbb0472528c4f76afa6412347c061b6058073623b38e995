@@ -22,7 +22,7 @@ var Index = React.createClass({
 
     var l10nCountryData = {};
     var supportedLocales = require('../../node_modules/localized-countries/languages.json');
-    var siteCountries = ['AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IE', 'IT', 'LV', 'LT', 'LU', 'MT', 'NL', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB'];
+    var siteCountries = ['US', 'CA', 'UK', 'AU'];
     if (this.props.localesInfo.length) {
       this.props.localesInfo.forEach(function(locale) {
         var targetLocale = locale.replace(/-/g , "_");
@@ -79,7 +79,7 @@ var Index = React.createClass({
           <link rel="preconnect" href="https://www.google-analytics.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="preconnect" href="https://206878104.log.optimizely.com" />
-          <title>{metaData.site_title}</title>
+          <title>This Week in the Web</title>
           <OptimizelySubdomain/>
           <Optimizely/>
           <link rel="icon" href={this.props.favicon} type="image/x-icon"/>
