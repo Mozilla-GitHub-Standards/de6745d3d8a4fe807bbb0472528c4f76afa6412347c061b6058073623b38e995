@@ -143,8 +143,7 @@ var Signup = React.createClass({
     });
 
     var buttonClassName = classnames(`button`, {
-      "submitting": this.state.submitting === SIGNUP_SUBMITTING,
-      "arrow": this.state.submitting === NOT_SUBMITTING
+      "submitting": this.state.submitting === SIGNUP_SUBMITTING
     });
     var buttonText = this.context.intl.formatMessage({id: 'sign_up_button'});
     if (this.state.submitting) {
