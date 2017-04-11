@@ -13,6 +13,7 @@
   top: 0;
   width: 100%;
   padding: 20px;
+  z-index: 2;
 }
 
 /*News Matrix Container*/
@@ -31,7 +32,6 @@
   height: 0;
   overflow: hidden;
   margin-top: 2rem;
-  z-index: -1;
 }
 
 .news-matrix-inner-container iframe {
@@ -49,15 +49,14 @@
   width: 425px;
   top: 0;
   left: 0;
-  height: ~"calc(100vh - 100px)";
+  height: 100vh;
   color: white;
   display: flex;
   align-items: center;
   padding: 50px;
   position: fixed;
-  z-index: -1;
-  top: 100px;
-  transition: left 1s ease;
+  z-index: 1;
+  /*transition: left 0.5s ease;*/
 }
 
 .signup-form button, input, optgroup, select, textarea {
@@ -123,6 +122,13 @@ p.signup-text {
   box-shadow: none;
 }
 
+img.close-button {
+position: absolute;
+right: 25px;
+top: 25px;
+cursor: pointer;
+}
+
 /*CTA Bar for Tablet and Mobile*/
 
 .signup-cta-bar {
@@ -133,6 +139,7 @@ p.signup-text {
   position: fixed;
   top: ~"calc(100% - 80px)";
   width:  100%;
+  display: none;
   p {
     display: inline;
     margin-right: 5px;
@@ -149,7 +156,6 @@ p.signup-text {
       color: #fff;
       cursor: pointer;
   }
-  visibility: hidden;
 }
 
 /*Responsive Design*/
@@ -164,12 +170,13 @@ p.signup-text {
     margin-left: 0;
   }
   .signup-cta-bar {
-    visibility: visible;
+    display: block;
   }
   .signup-form-container.show {
     left: 0;
     top: 0;
     height: 100vh;
+    z-index: 3;
   }
 }
 /*Mobile Responsive Tweaks*/
@@ -182,9 +189,11 @@ p.signup-text {
       width: 100%;
     }
   }
+  .signup-form-content, .signup-form-container {
+    width: 100%;
+  }
   .signup-form-container {
     font-size: 16px;
-    width: 100%;
     padding: 25px;
     top: 0;
   }

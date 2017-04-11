@@ -155,6 +155,7 @@ var Signup = React.createClass({
 
     return (
       <div className="signup-form">
+        <img src="/assets/images/close.png" alt="close signup form button" className="close-button" onClick={this.props.onClose}/>
         <h1 className="call-to-action">{this.context.intl.formatMessage({id: 'call_to_action'})}</h1>
         <p className="signup-text">{this.context.intl.formatMessage({id: 'signup_text'})}</p>
         {/*<input onClick={this.onFirstNameInputClick} autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
