@@ -18,8 +18,8 @@
 
 /*News Matrix Container*/
 
-.news-matrices-container:first-child {
-  margin-top: 100px;
+.news-matrices-container {
+  margin: 78px 0;
 }
 
 .news-matrix-inner-container {
@@ -56,7 +56,6 @@
   padding: 50px;
   position: fixed;
   z-index: 1;
-  /*transition: left 0.5s ease;*/
 }
 
 .signup-form button, input, optgroup, select, textarea {
@@ -163,7 +162,11 @@ cursor: pointer;
 /*Initiating CTA Bar*/
 @media screen and (max-width: 1200px) {
   .signup-form-container {
-    left: -425px;
+    display: none;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    z-index: 3;
   }
   .news-matrix-inner-container {
     width: 100%;
@@ -173,10 +176,7 @@ cursor: pointer;
     display: block;
   }
   .signup-form-container.show {
-    left: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 3;
+    display: block;
   }
 }
 /*Mobile Responsive Tweaks*/
@@ -195,6 +195,5 @@ cursor: pointer;
   .signup-form-container {
     font-size: 16px;
     padding: 25px;
-    top: 0;
   }
 }
