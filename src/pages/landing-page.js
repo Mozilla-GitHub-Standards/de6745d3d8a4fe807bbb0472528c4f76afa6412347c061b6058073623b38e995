@@ -26,10 +26,9 @@ var Signup = React.createClass({
     if (this.props.test) {
       className += " " + this.props.test;
     }
-    var singupFormContainerClassName = "signup-form-container";
-    console.log (this.state.showForm);
+
     if (this.state.showForm) {
-      singupFormContainerClassName += " show";
+      className += " show-form";
     }
     return (
       <div className={className}>
@@ -37,10 +36,8 @@ var Signup = React.createClass({
           <div className="header">
             <img className="mozilla-logo" src="/assets/images/moz-logo-white.png" alt="mozilla logo in white" width="115px"/>
           </div>
-          {/*}<div className="news-matrices-container">*/}
-            <NewsMatrices/>
-          {/*}</div>*/}
-          <div className={singupFormContainerClassName}>
+          <NewsMatrices/>
+          <div className="signup-form-container">
             <div className="signup-form-content">
               <SignupForm onClose={this.onClose}/>
             </div>

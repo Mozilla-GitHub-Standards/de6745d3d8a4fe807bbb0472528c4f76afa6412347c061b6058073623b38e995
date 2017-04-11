@@ -181,8 +181,16 @@ cursor: pointer;
   .signup-cta-bar {
     display: block;
   }
-  .signup-form-container.show {
-    display: block;
+  .show-form {
+    .signup-form-container {
+      display: flex;
+    }
+    .header {
+      display: none;
+    }
+    .signup-cta-bar {
+      display: none;
+    }
   }
 }
 /*Mobile Responsive Tweaks*/
@@ -195,11 +203,23 @@ cursor: pointer;
       width: 100%;
     }
   }
-  .signup-form-content, .signup-form-container {
+  .show-form {
+    .news-matrices-container {
+      display: none;
+    }
+  }
+  .signup-form-content {
+    margin: 25px 0;
+  }
+  .signup-form-content,
+  .signup-form-container {
     width: 100%;
   }
   .signup-form-container {
     font-size: 16px;
     padding: 25px;
+    position: static;
+    height: 100%;
+    min-height: 100vh;
   }
 }
