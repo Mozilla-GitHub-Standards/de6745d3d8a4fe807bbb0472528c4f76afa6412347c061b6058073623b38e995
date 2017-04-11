@@ -133,8 +133,13 @@ p.signup-text {
   font-family: "ZillaSlab-LightItalic";
 }
 
-.signup-form input:invalid {
-  box-shadow: none;
+.signup-form {
+  input, select {
+    border-radius: 0;
+    &:invalid {
+      box-shadow: none;
+    }
+  }
 }
 
 img.close-button {
