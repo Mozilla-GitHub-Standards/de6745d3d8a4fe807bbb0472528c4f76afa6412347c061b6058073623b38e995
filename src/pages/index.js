@@ -22,7 +22,7 @@ var Index = React.createClass({
 
     var l10nCountryData = {};
     var supportedLocales = require('../../node_modules/localized-countries/languages.json');
-    var siteCountries = ['US', 'CA', 'UK', 'AU'];
+    var siteCountries = ['US', 'CA', 'GB', 'AU'];
     if (this.props.localesInfo.length) {
       this.props.localesInfo.forEach(function(locale) {
         var targetLocale = locale.replace(/-/g , "_");
