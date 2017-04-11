@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedHTMLMessage, FormattedMessage } from 'react-intl';
-import { setEmailError, setEmail, setFirstName, setLastName, setCountry, setSignupCheckbox, setSignupCheckboxError, setPrivacyCheckbox, setPrivacyCheckboxError } from '../actions';
+import { setEmailError, setEmail, setCountry, setPrivacyCheckbox, setPrivacyCheckboxError } from '../actions';
 import { connect } from 'react-redux';
 import classnames from "classnames";
 import reactGA from 'react-ga';
@@ -20,12 +20,6 @@ var Signup = React.createClass({
       submitting: NOT_SUBMITTING
     };
   },
-  firstNameChange: function(e) {
-    this.props.setFirstName(e.target.value);
-  },
-  lastNameChange: function(e) {
-    this.props.setLastName(e.target.value);
-  },
   emailChange: function(e) {
     this.props.setEmail(e.target.value);
   },
@@ -36,9 +30,6 @@ var Signup = React.createClass({
       label: "Country Focus"
     });
     this.props.setCountry(e.target.value);
-  },
-  signupCheckboxChange: function(e) {
-    this.props.setSignupCheckbox(e.target.checked);
   },
   privacyCheckboxChange: function(e) {
     this.props.setPrivacyCheckbox(e.target.checked);
@@ -78,16 +69,6 @@ var Signup = React.createClass({
       });
     }
 
-    if (!this.props.signupCheckbox) {
-      valid = false;
-      this.props.setSignupCheckboxError(this.context.intl.formatMessage({id: "please_complete"}));
-      reactGA.event({
-        category: "Signup",
-        action: "Form Error",
-        label: "Opt-in Error"
-      });
-    }
-
     if (valid) {
       reactGA.event({
         category: "Signup",
@@ -96,25 +77,9 @@ var Signup = React.createClass({
       });
       this.basket({
         email: this.props.email,
-        firstName: this.props.firstName,
-        lastName: this.props.lastName,
         country: this.props.country
       });
     }
-  },
-  onFirstNameInputClick: function() {
-    reactGA.event({
-      category: "Signup",
-      action: "Form Step",
-      label: "First Name Focus"
-    });
-  },
-  onLastNameInputClick: function() {
-    reactGA.event({
-      category: "Signup",
-      action: "Form Step",
-      label: "Last Name Focus"
-    });
   },
   onEmailInputClick: function() {
     reactGA.event({
@@ -128,13 +93,6 @@ var Signup = React.createClass({
       category: "Signup",
       action: "Form Step",
       label: "Privacy Checkbox Focus"
-    });
-  },
-  onSignupCheckboxClick: function() {
-    reactGA.event({
-      category: "Signup",
-      action: "Form Step",
-      label: "Opt-in Checkbox Focus"
     });
   },
   render: function() {
@@ -157,9 +115,8 @@ var Signup = React.createClass({
         <img src="/assets/images/close.png" alt="close signup form button" className="close-button" onClick={this.props.onClose}/>
         <h1 className="call-to-action">{this.context.intl.formatMessage({id: 'call_to_action'})}</h1>
         <p className="signup-text">{this.context.intl.formatMessage({id: 'signup_text'})}</p>
-        {/*<input onClick={this.onFirstNameInputClick} autoComplete="off" type='text' value={this.props.firstName} onChange={this.firstNameChange} placeholder={this.context.intl.formatMessage({id: 'first_name'})}/>
-        <input onClick={this.onLastNameInputClick} autoComplete="off" type='text' value={this.props.lastName} onChange={this.lastNameChange} placeholder={this.context.intl.formatMessage({id: 'last_name'})}/>*/}
         <input onClick={this.onEmailInputClick} autoComplete="off" ref={(input) => { this.emailInput = input; }} type='email' className={emailClassName} value={this.props.email} onChange={this.emailChange} required placeholder={this.context.intl.formatMessage({id: 'email'})}/>
+        <p className="error-message">{this.props.emailError}</p>
         <select autoComplete="off" required value={this.props.country} onChange={this.countryChange}>
           <option value="">{this.context.intl.formatMessage({id: 'country'})}</option>
           {
@@ -169,13 +126,7 @@ var Signup = React.createClass({
           }
           <option value="other" data-other="">{this.context.intl.formatMessage({id: 'country_other'})}</option>
         </select>
-        <p className="error-message">{this.props.emailError}</p>
         <p className="error-message">{this.state.signupError}</p>
-        {/*}<label>
-          <input onClick={this.onSignupCheckboxClick} className="checkbox" autoComplete="off" onChange={this.signupCheckboxChange} value={this.props.signupCheckbox} type="checkbox"></input>
-          {this.context.intl.formatMessage({id: 'signup_checkbox'})}
-        </label>*/}
-        <p className="privacy-error error-message">{this.props.signupCheckboxError}</p>
         <label>
           <input onClick={this.onPrivacyCheckboxClick} className="checkbox" autoComplete="off" onChange={this.privacyCheckboxChange} value={this.props.privacyCheckbox} type="checkbox"></input>
           <FormattedMessage
@@ -200,11 +151,7 @@ function(state) {
   return {
     email: state.signupForm.email,
     emailError: state.signupForm.emailError,
-    firstName: state.signupForm.firstName,
-    lastName: state.signupForm.lastName,
     country: state.signupForm.country,
-    signupCheckbox: state.signupForm.signupCheckbox,
-    signupCheckboxError: state.signupForm.signupCheckboxError,
     privacyCheckbox: state.signupForm.privacyCheckbox,
     privacyCheckboxError: state.signupForm.privacyCheckboxError
   };
@@ -217,20 +164,8 @@ function(dispatch) {
     setEmail: function(data) {
       dispatch(setEmail(data));
     },
-    setFirstName: function(data) {
-      dispatch(setFirstName(data));
-    },
-    setLastName: function(data) {
-      dispatch(setLastName(data));
-    },
     setCountry: function(data) {
       dispatch(setCountry(data));
-    },
-    setSignupCheckbox: function(data) {
-      dispatch(setSignupCheckbox(data));
-    },
-    setSignupCheckboxError: function(data) {
-      dispatch(setSignupCheckboxError(data));
     },
     setPrivacyCheckbox: function(data) {
       dispatch(setPrivacyCheckbox(data));
