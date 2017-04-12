@@ -19,16 +19,14 @@
 /*News Matrix Container*/
 
 .news-matrices-container {
-  margin: 78px 0;
+  margin: 78px 50px 50px 425px;
 }
 
 .news-matrix-inner-container {
-  margin-left: 425px;
   background: #000;
-  width: ~"calc(100% - 425px)";
+  width: 100%;
   position: relative;
-  padding-bottom: 75%;
-  padding-top: 35px;
+  padding-bottom: 133%;
   height: 0;
   overflow: hidden;
   margin-top: 2rem;
@@ -189,9 +187,9 @@ cursor: pointer;
     height: 100vh;
     z-index: 3;
   }
-  .news-matrix-inner-container {
-    width: 100%;
-    margin-left: 0;
+  .news-matrices-container {
+    margin-left: 50px;
+    margin-bottom: 6rem;
   }
   .signup-cta-bar {
     display: block;
@@ -210,6 +208,10 @@ cursor: pointer;
 }
 /*Mobile Responsive Tweaks*/
 @media screen and (max-width: 600px) {
+  .news-matrices-container {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
   .signup-cta-bar {
     p {
       display: none;
